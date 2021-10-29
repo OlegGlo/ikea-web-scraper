@@ -50,12 +50,26 @@ with webdriver.Chrome() as driver:
     checkout_button = driver.find_element(By.XPATH, "/html/body/main/main/div/div/div/div[11]/div/div[2]/div/button[2]")
     checkout_button.click()
 
+    time.sleep(12)
+
+    in_stock_status = True
+
+    try:
+        message = driver.find_element(By.XPATH,("//*[text()='No available shipping options']"))
+        in_stock_status = False
+        driver.close()
+    except:
+        print("no prompt")
+
     #check availability
     try:
-        time.sleep(9)
-        message = driver.find_element(By.XPATH,("//*[text()='No available shipping options']"))
-        print("not in stock")
-        driver.quit()
+        message = driver.find_element(By.XPATH,("//*[text()='We’re not able to send you the items via home delivery at the moment. Please try again tomorrow or proceed with Click and Collect. We apologize for any inconvenience.']"))
+        in_stock_status = False
+        driver.close()
     except:
-        print("in stock or error")
-        
+        print("error in method")
+
+if in_stock_status == True:
+    print("item in stock")
+else:
+    print("item out of stock or error")
