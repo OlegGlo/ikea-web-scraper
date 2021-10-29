@@ -72,4 +72,4 @@ with webdriver.Chrome() as driver:
 if in_stock_status == True:
     print("item in stock")
 else:
-    print("item out of stock or error")
+    print("item out of stock")
