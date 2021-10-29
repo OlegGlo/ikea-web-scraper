@@ -1,0 +1,6 @@
+source env/bin/activate === to activate
+
+(env) should appear as a prefix.
+
+deactivate === to deactivate
+
