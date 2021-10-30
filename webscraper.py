@@ -59,7 +59,7 @@ with webdriver.Chrome() as driver:
         in_stock_status = False
         driver.close()
     except:
-        print("no prompt")
+        pass
 
     #check availability
     try:
@@ -67,7 +67,9 @@ with webdriver.Chrome() as driver:
         in_stock_status = False
         driver.close()
     except:
-        print("error in method")
+        pass
+
+    driver.close()
 
 if in_stock_status == True:
     print("item in stock")
