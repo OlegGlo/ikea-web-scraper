@@ -69,8 +69,6 @@ with webdriver.Chrome() as driver:
     except:
         pass
 
-    driver.close()
-
 if in_stock_status == True:
     print("item in stock")
 else:
