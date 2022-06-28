@@ -1,0 +1,12 @@
+cd REST/webscraper/
+
+#virtual env set up
+source env/bin/activate
+
+#run script
+python3 webscraper.py
+
+#close env
+deactivate
+
+exit
